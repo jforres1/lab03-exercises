@@ -2,7 +2,7 @@ def find_duplicates_nested_loop(l: list) -> list:
     duplicates = []
     for i in range(len(l)):
         for j in range(len(l) - i - 1):
-            if l[i] == l[j + i + 1]:
+            if l[i] == l[i + j + 1]:
                 duplicates.append(l[i])
                 break
     return duplicates
