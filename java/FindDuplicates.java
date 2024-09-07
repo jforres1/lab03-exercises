@@ -1,6 +1,8 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 public class FindDuplicates {
 
@@ -17,6 +19,21 @@ public class FindDuplicates {
         return duplicates;
     }
 
+    public static List<Integer> findModeMap(List<Integer> l){
+        List<Integer> duplicates = new ArrayList<Integer>();
+        Map<Integer, Integer> aux = new HashMap<Integer, Integer>();
+        Integer temp;
+        for(Integer i : l){
+            temp = aux.get(i);
+            if(temp == null){
+                aux.put(i, i);
+            }else{
+                duplicates.add(temp);
+            }
+        }
+        return duplicates;
+    }
+
     public static void main(String[] args) {
         // some test strings:
         List<Integer> sample1 = new ArrayList<Integer>(Arrays.asList(3, 7, 5, 6, 7, 4, 8, 5, 7, 66));
@@ -27,6 +44,10 @@ public class FindDuplicates {
         System.out.println("Sample 2: " + findModeNestedLoops(sample2));
         System.out.println("Sample 3: " + findModeNestedLoops(sample3));
         System.out.println("Sample 4: " + findModeNestedLoops(sample4));
+        System.out.println("Sample 1: " + findModeMap(sample1));
+        System.out.println("Sample 2: " + findModeMap(sample2));
+        System.out.println("Sample 3: " + findModeMap(sample3));
+        System.out.println("Sample 4: " + findModeMap(sample4));
     }
 
 }
